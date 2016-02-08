@@ -1,5 +1,5 @@
 package net.mechgear.geekscraft.geekscraft.anticheat;
 
-public class CreateTemplat {
-	
+public class GetMD5 {
+
 }
