@@ -1,9 +1,9 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
+  "modid": "GeeksCraft",
+  "name": "GeeksCraft",
+  "description": "A Minecarft Mod Based On Minecraft Forge For Minecraft GeeksCraft Server.",
+  "version": "1.0",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

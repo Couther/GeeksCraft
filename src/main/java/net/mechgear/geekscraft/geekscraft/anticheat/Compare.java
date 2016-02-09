@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class Compare {
-	Map<String,String> temp = new GetTemplate().getTmeplate();
+	Map<String,String> temp = new GetTemplate(false).getTmeplate();
 	Map<String,String> cinfo = new ClientInformation().getClientInformation();
 	
 	boolean resalt(){
