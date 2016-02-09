@@ -33,7 +33,7 @@ public class ClientInformation {
 	}
 	
 	private String pathWork(File f){
-		String s = f.getAbsolutePath();
+		String s = f.getAbsolutePath().replace('\\', '/');
 		return s.substring(s.lastIndexOf(".minecraft")+11);
 	}
 	

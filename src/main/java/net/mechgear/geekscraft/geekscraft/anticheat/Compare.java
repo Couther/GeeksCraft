@@ -17,6 +17,7 @@ public class Compare {
 	Compare(Map<String,String> t,Map<String,String> c,String seed){
 		this.temp = t;
 		this.cinfo = c;
+		temp.remove("seed");
 		antiEncrypt(seed);
 		com();
 		
@@ -34,13 +35,27 @@ public class Compare {
 	
 	private void com(){
 		if(temp.size()<cinfo.size()){
+			Set<String> se = cinfo.keySet();
+			se.removeAll(temp.keySet());
+			for(String s:se){
+				System.out.println("多出的文件："+s+"；"+cinfo.get(s));
+			}
+			System.out.println("temp"+temp.size());
+			System.out.println("Client"+cinfo.size());
+			
 			return;
 		}
 		
 		Set<String> key = cinfo.keySet();
 		
 		for(String s:key){
-			if(!(temp.containsKey(s))&&(temp.get(s).equals(cinfo.get(s)))){
+			if((!(temp.containsKey(s)&&temp.get(s).equals(cinfo.get(s))))&&(!(cinfo.get(s).equals("mods/GeeksCraft.jar")))){
+				System.err.println(temp.containsKey(s));
+				System.out.println(s);
+				System.err.println("Client:"+cinfo.get(s));
+				System.err.println("temp:"+temp.get(s));
+				
+				
 				return;
 			}
 		}

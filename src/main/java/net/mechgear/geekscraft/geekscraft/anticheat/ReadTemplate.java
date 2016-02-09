@@ -15,7 +15,7 @@ public class ReadTemplate {
 		if(ifFromIntenet){
 //			该功能建设中
 		}else{
-			template = readTempFromFile("/assets/Template.temp");
+			template = readTempFromFile("/assets/template.temp");
 		}
 		
 	}

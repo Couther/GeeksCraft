@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.mechgear.geekscraft.geekscraft.Window.Prompt;
+
 public class ReadFile {
 	
 	//声明用于保存文件列表的List对象
@@ -18,6 +20,7 @@ public class ReadFile {
 	private String getPath(){
 		//获取一个假设文件的路径以做参照
 		String test = new String(new File("Test.txt").getAbsolutePath());
+		test = test.substring(0, test.length()-9);
 		//判断路径是否正确，并对路径做修改（针对不同启动器）
 		//检查路径中是否含有.minecraft,若不包含，则test.lastIndexOf(".minecraft")返回值为-1
 		if (test.lastIndexOf(".minecraft")== -1){
@@ -29,6 +32,8 @@ public class ReadFile {
 				return test;
 			}else{
 				System.out.println("Cannot find the game Directory");
+				new Prompt("Cannot find the game Directory,当前root路径："+test);
+				System.out.println("当前root路径:"+test);
 				return null;
 			}
 		}else{
@@ -38,6 +43,8 @@ public class ReadFile {
 				return test;
 			}else{
 				System.out.println("Cannot find the game Directory");
+				new Prompt("Cannot find the game Directory,当前root路径："+test);
+				System.out.println("当前root路径:"+test);
 				return null;
 			}
 		}
