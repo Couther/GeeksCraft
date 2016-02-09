@@ -1,30 +1,55 @@
 package net.mechgear.geekscraft.geekscraft.anticheat;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class Compare {
-	Map<String,String> temp = new GetTemplate(false).getTmeplate();
-	Map<String,String> cinfo = new ClientInformation().getClientInformation();
+	private Map<String,String> temp;
+	private Map<String,String> cinfo;
+	private boolean resalt =true;
 	
-	boolean resalt(){
-		if(temp.size()<cinfo.size()){
-			return true;
-		}
-		
-		Set<String> key = cinfo.keySet();
-		for(String s:key){
-			if((temp.containsKey(s))&&(temp.get(s).equals(cinfo.get(s)))){
-				
-			}else{
-//				break;
-				return true;
-			}
-		}
-		return true;
+	Compare(Map<String,String> t,Map<String,String> c) {
+		this.temp = t;
+		this.cinfo = c;
+		com();
+	}
+	Compare(Map<String,String> t,Map<String,String> c,String seed){
+		this.temp = t;
+		this.cinfo = c;
+		antiEncrypt(seed);
+		com();
 		
 	}
 	
+	private void antiEncrypt(String seed){
+		Map<String,String> m = new HashMap<String,String>();
+		AntiEncrypt a = new AntiEncrypt(seed);
+		Set<String> key = temp.keySet();
+		for(String s:key){
+			m.put(a.encryptString(s),a.encryptString(temp.get(s)));
+		}
+		temp = m;
+	}
+	
+	private void com(){
+		if(temp.size()<cinfo.size()){
+			return;
+		}
+		
+		Set<String> key = cinfo.keySet();
+		
+		for(String s:key){
+			if(!(temp.containsKey(s))&&(temp.get(s).equals(cinfo.get(s)))){
+				return;
+			}
+		}
+		resalt = false;
+		
+	}
+	boolean getResalt(){
+		return resalt;
+	}
 	
 	
 }

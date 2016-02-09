@@ -9,7 +9,7 @@ public class ReadFile {
 	//声明用于保存文件列表的List对象
 	private List<File> fileList= new ArrayList<File>();
 	
-	public ReadFile(){
+	ReadFile(){
 		//初始化
 		readFile();
 	}
@@ -49,7 +49,7 @@ public class ReadFile {
 		fileReader(root+"/mods", fileList);
 		fileReader(root+"/versions", fileList);
 		fileReader(root+"/libraries", fileList);
-		fileList.add(new File(root+"/launcher_profiles"));
+		fileList.add(new File(root+"/launcher_profiles.json"));
 		
 	}
 	

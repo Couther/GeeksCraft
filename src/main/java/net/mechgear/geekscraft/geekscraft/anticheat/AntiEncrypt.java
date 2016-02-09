@@ -1,12 +1,27 @@
 package net.mechgear.geekscraft.geekscraft.anticheat;
 
 public class AntiEncrypt {
+	private String seed;
 	
-	public AntiEncrypt(int seed) {
-
+	AntiEncrypt(String  seed) {
+		this.seed = seed;
 	}
 	
-	
+	String encryptString(String s){
+		
+		char[] seeds = seed.toCharArray();
+
+		char[] x = s.toCharArray();
+		int m = 0;
+		for(int p = 0;p < x.length;++p){
+			x[p]=(char)(x[p]^(seeds[m]*1123));
+			++m;
+			if (m==seeds.length){
+				m=0;
+			}
+		}
+		return new String(x);
+	}
 	
 	
 }

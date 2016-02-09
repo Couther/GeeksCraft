@@ -8,10 +8,10 @@ import java.util.Map;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 
-public class GetTemplate {
-	Map<String,String> template = new HashMap<String, String>();
+public class ReadTemplate {
+	private Map<String,String> template = new HashMap<String, String>();
 	
-	public GetTemplate(boolean ifFromIntenet) {
+	ReadTemplate(boolean ifFromIntenet) {
 		if(ifFromIntenet){
 //			该功能建设中
 		}else{
@@ -20,9 +20,9 @@ public class GetTemplate {
 		
 	}
 	
-	Map<String,String> readTempFromFile(String path){
+	private Map<String,String> readTempFromFile(String path){
 		
-		Map<String,String> temp = new HashMap<String, String>();
+		Map<String,String> temp=null;
 		
 		try {
 			
@@ -47,7 +47,11 @@ public class GetTemplate {
 		
 		
 		
-	
+	String getSeed(){
+		
+		return template.get("seed");
+		
+	}
 	
 	
 	Map<String,String> getTmeplate(){
