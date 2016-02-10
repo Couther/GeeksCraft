@@ -20,6 +20,7 @@ apply plugin: 'forge'
 group= "GeeksCraftStudio"
 archivesBaseName = "GeeksAntiCheat"
 
+ext.configFile = file "build.properties"
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
