@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+group= "GeeksCraftStudio"
+archivesBaseName = "GeeksAntiCheat"
+
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
@@ -42,6 +42,9 @@ task buildInfo {
         ext.buildNum = "DEV.${project.buildInfo.revision}"
     }
 }
+
+version = "${config.minecraft_version}-${artifact_version}"
+
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
