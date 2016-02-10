@@ -72,7 +72,7 @@ public class Compare {
 		for(String s:key){
 			//if判断（长达121字的判别式不解释，用心去感受）
 			//判别式中文解释：当 temp中不包含这个key或者对应文件的哈希值不正确时且不符合前者判断的文件不是mods/GeeksCraft.jar对应的文件时，返回true
-			if((!(temp.containsKey(s)&&temp.get(s).equals(cinfo.get(s))))&&(!(s.substring(s.length()-19).equals("mods/GeeksCraft.jar")))){
+			if((!(temp.containsKey(s)&&temp.get(s).equals(cinfo.get(s))))&&(!(s.substring(s.length()-19).equals("mods/GeeksCraft.jar")))&&(!(s.substring(s.length()-19).equals("mods/carpentersblocks/CarpentersBlocksCachedResources.zip")))){
 				
 				//输出详细信息
 				System.err.println(temp.containsKey(s));
