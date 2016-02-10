@@ -19,7 +19,7 @@ public class ReadFile {
 	//获取.minecraft的绝对路径
 	private String getPath(){
 		//获取一个假设文件的路径以做参照
-		String test = new String(new File("Test.txt").getAbsolutePath());
+		String test = new String(new File("Test.txt").getAbsolutePath().replace('\\', '/'));
 		test = test.substring(0, test.length()-9);
 		//判断路径是否正确，并对路径做修改（针对不同启动器）
 		//检查路径中是否含有.minecraft,若不包含，则test.lastIndexOf(".minecraft")返回值为-1

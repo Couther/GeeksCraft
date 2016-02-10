@@ -49,7 +49,7 @@ public class Compare {
 		Set<String> key = cinfo.keySet();
 		
 		for(String s:key){
-			if((!(temp.containsKey(s)&&temp.get(s).equals(cinfo.get(s))))&&(!(s.equals("mods/GeeksCraft.jar")))){
+			if((!(temp.containsKey(s)&&temp.get(s).equals(cinfo.get(s))))&&(!(s.substring(s.length()-19).equals("mods/GeeksCraft.jar")))){
 				System.err.println(temp.containsKey(s));
 				System.out.println(s);
 				System.err.println("Client:"+cinfo.get(s));
