@@ -2,6 +2,7 @@ package net.mechgear.geekscraft.geekscraft;
 
 import net.mechgear.geekscraft.geekscraft.anticheat.AntiCheatCore;
 import net.minecraft.init.Blocks;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -15,6 +16,9 @@ public class GeeksCraft
     
     @EventHandler
     public void init(FMLPreInitializationEvent event){
-    	new AntiCheatCore();
+    	//反作弊核心
+    	if(FMLCommonHandler.instance().getSide().isClient()){
+    		new AntiCheatCore();
+    	}
     }
 }
