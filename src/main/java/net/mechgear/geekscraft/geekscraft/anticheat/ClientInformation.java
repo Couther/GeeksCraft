@@ -11,10 +11,10 @@ public class ClientInformation {
 	ClientInformation(){
 		List<File> fl = new ReadFile().getFileList();
 		for(File f : fl){
-			info.put("SHA-1:"+GetSHA1.sha1Reader(f), pathWork(f));
+			info.put("SHA-1:"+pathWork(f),"SHA-1:"+GetMD5.md5Reader(f));
 		}
 		for(File f : fl){
-			info.put("MD5:"+GetMD5.md5Reader(f), pathWork(f));
+			info.put("MD5:"+pathWork(f),"MD5:"+GetMD5.md5Reader(f));
 		}
 		
 	}
@@ -25,10 +25,10 @@ public class ClientInformation {
 		
 		List<File> fl = new ReadFile().getFileList();
 		for(File f : fl){
-			info.put(e.encryptString("SHA-1:"+GetSHA1.sha1Reader(f)), e.encryptString(pathWork(f)));
+			info.put( e.encryptString("SHA-1:"+pathWork(f)),e.encryptString("SHA-1:"+GetSHA1.sha1Reader(f)));
 		}
 		for(File f : fl){
-			info.put(e.encryptString("MD5:"+GetMD5.md5Reader(f)), e.encryptString(pathWork(f)));
+			info.put( e.encryptString("MD5:"+pathWork(f)),e.encryptString("MD5:"+GetSHA1.sha1Reader(f)));
 		}
 	}
 	
