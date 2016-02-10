@@ -21,6 +21,12 @@ group= "GeeksCraftStudio"
 archivesBaseName = "GeeksAntiCheat"
 
 ext.configFile = file "build.properties"
+configFile.withReader {
+    // Load config.  It shall from now be referenced as simply config or project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
